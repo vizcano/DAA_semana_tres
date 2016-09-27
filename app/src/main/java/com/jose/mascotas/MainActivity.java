@@ -3,18 +3,19 @@ package com.jose.mascotas;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends AppCompatActivity {
 
     /*
     Declarar instancias globales
@@ -35,16 +36,6 @@ public class MainActivity extends ActionBarActivity {
 
         View view = getSupportActionBar().getCustomView();
 
-        // estrella
-        ImageButton imageButtonHuella = (ImageButton)view.findViewById(R.id.action_bar_estrella);
-        imageButtonHuella.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, FavoritosActivity.class);
-                startActivity(intent);
-            }
-        });
-
         // Inicializar Mascotas
         List<Mascotas> items = new ArrayList<>();
 
@@ -56,8 +47,15 @@ public class MainActivity extends ActionBarActivity {
 
         // Obtener el Recycler
         recycler = (RecyclerView) findViewById(R.id.reciclador);
-        recycler.setHasFixedSize(true);
 
+        try
+        {
+            recycler.setHasFixedSize(true);
+        }
+        catch (NullPointerException nullPointer)
+        {
+           Log.v("Error", String.valueOf(nullPointer));
+        }
         // Usar un administrador para LinearLayout
         lManager = new LinearLayoutManager(this);
         recycler.setLayoutManager(lManager);
@@ -65,11 +63,41 @@ public class MainActivity extends ActionBarActivity {
         // Crear un nuevo adaptador
         adapter = new MascotasAdapter(items);
         recycler.setAdapter(adapter);
+
+        // estrella
+        ImageButton imageButtonEstrella = (ImageButton)view.findViewById(R.id.action_bar_estrella);
+        imageButtonEstrella.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, FavoritosActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
-    public void a(View v){
-        Toast toast = Toast.makeText(getApplicationContext(), "Toast por defecto", Toast.LENGTH_SHORT);
-        toast.show();
+    // Añadiendo las opciones de menú
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    // Añadiendo funcionalidad a las opciones de menú
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent;
+        switch (item.getItemId()) {
+            case R.id.btContacto:
+                intent = new Intent(MainActivity.this, FormularioActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.btAcercaDe:
+                intent = new Intent(MainActivity.this, DetalleMascotaActivity.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 }

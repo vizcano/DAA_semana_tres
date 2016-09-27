@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Mascotas</string>
+    <string name="btnContacto">Contacto</string>
+    <string name="btnAcercaDe">Acerca de</string>
+    <string name="btnEnviar">Enviar</string>
+    <string name="titulo_formulario">Contacto</string>
+    <string name="titulo_acercade">Acerca de</string>
+    <string name="hint_nombre_completo">Nombre</string>
+    <string name="hint_email">Correo electrónico</string>
+    <string name="hint_mensaje">Mensaje</string>
+    <string name="tvBiografia">Biografía</string>
+    <string name="tvNombre">Nombre</string>
+    <string name="tvProfesion">Profesión</string>
+    <string name="tvPais">País</string>
+
 </resources>

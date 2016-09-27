@@ -4,4 +4,8 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="divider">4dp</dimen>
     <dimen name="card_height">100dp</dimen>
+    <dimen name="margin_top_viwes">10dp</dimen>
+    <dimen name="margin_top_layout">40dp</dimen>
+    <dimen name="margin_card">10dp</dimen>
+    <dimen name="titulo">16dp</dimen>
 </resources>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.jose.mascotas.AcercadeActivity">
+
+    <TextView
+        android:id="@+id/tvTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="12dp"
+        android:textStyle="bold"
+        android:textSize="@dimen/titulo"
+        android:text="@string/tvBiografia" />
+
+    <LinearLayout
+        android:id="@+id/linearNombre"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTitulo"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textViewLabelNombre"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:text="@string/tvNombre"
+            android:layout_gravity="left"
+            />
+
+        <TextView
+            android:id="@+id/tvNombre"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="José Miguel"
+            android:layout_gravity="right"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearProfesion"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearNombre"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textViewLabelProfesion"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:text="@string/tvProfesion"
+            android:layout_gravity="left"
+            />
+
+        <TextView
+            android:id="@+id/tvProfesion"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Desarrollador web"
+            android:layout_gravity="right"
+            />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linearPais"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearProfesion"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textViewLabelPais"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:text="@string/tvPais"
+            android:layout_gravity="left"
+            />
+
+        <TextView
+            android:id="@+id/tvPais"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="España"
+            android:layout_gravity="right"
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>
